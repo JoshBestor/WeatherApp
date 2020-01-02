@@ -99,16 +99,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //method that allows me to round numbers
-    private static double round(double value, int places) {
-        if (places < 0) throw new IllegalArgumentException();
+    /*
+    Map weather to screen function
 
-        BigDecimal bd = BigDecimal.valueOf(value);
-        bd = bd.setScale(places, RoundingMode.HALF_UP);
-        return bd.doubleValue();
-    }
+    input: weather - object found by mapping json
+    output: none
 
-    //puts the value from dark sky into the corresponding text view
+    This function puts all relevant information onto the screen
+     */
     private void mapWeatherToScreen(Weather weather) {
         final Weather w = weather;
         runOnUiThread(new Runnable() {
@@ -116,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
 
                 DecimalFormat df = new DecimalFormat("#");
-                String s, h, t;
+                String s, h;
                 int day;
 
                 TextView currentTemp = findViewById(R.id.currentTemp);
@@ -142,73 +140,28 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView hourly_1 = findViewById(R.id.hourly_1);
                 s = getProbabilityValue(w.getHourly().getData().get(1).getPrecipProbability().toString());
-                if(((hour + 1) % 12) == 0) {
-                    h = String.valueOf(12);
-                }else{
-                    h = String.valueOf((hour + 1) % 12);
-                }
-                if((ti + 1) > 11){
-                    t = "pm";
-                }else{
-                    t = "am";
-                }
-                hourly_1.setText(h + t + "\n" + df.format(w.getHourly().getData().get(1).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+                h = getHour(hour + 1, ti + 1);
+                hourly_1.setText(h + "\n" + df.format(w.getHourly().getData().get(1).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_2 = findViewById(R.id.hourly_2);
                 s = getProbabilityValue(w.getHourly().getData().get(2).getPrecipProbability().toString());
-                if(((hour + 2) % 12) == 0) {
-                    h = String.valueOf(12);
-                }else{
-                    h = String.valueOf((hour + 2) % 12);
-                }
-                if((ti + 2) > 11){
-                    t = "pm";
-                }else{
-                    t = "am";
-                }
-                hourly_2.setText(h + t + "\n" + df.format(w.getHourly().getData().get(2).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+                h = getHour(hour + 2, ti + 2);
+                hourly_2.setText(h + "\n" + df.format(w.getHourly().getData().get(2).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_3 = findViewById(R.id.hourly_3);
                 s = getProbabilityValue(w.getHourly().getData().get(3).getPrecipProbability().toString());
-                if(((hour + 3) % 12) == 0) {
-                    h = String.valueOf(12);
-                }else{
-                    h = String.valueOf((hour + 3) % 12);
-                }
-                if((ti + 3) > 11){
-                    t = "pm";
-                }else{
-                    t = "am";
-                }
-                hourly_3.setText(h + t + "\n" + df.format(w.getHourly().getData().get(3).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+                h = getHour(hour + 3, ti + 3);
+                hourly_3.setText(h + "\n" + df.format(w.getHourly().getData().get(3).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_4 = findViewById(R.id.hourly_4);
                 s = getProbabilityValue(w.getHourly().getData().get(4).getPrecipProbability().toString());
-                if(((hour + 4) % 12) == 0) {
-                    h = String.valueOf(12);
-                }else{
-                    h = String.valueOf((hour + 4) % 12);
-                }
-                if((ti + 4) > 11){
-                    t = "pm";
-                }else{
-                    t = "am";
-                }
-                hourly_4.setText(h + t + "\n" + df.format(w.getHourly().getData().get(4).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+                h = getHour(hour + 4, ti + 4);
+                hourly_4.setText(h + "\n" + df.format(w.getHourly().getData().get(4).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_5 = findViewById(R.id.hourly_5);
                 s = getProbabilityValue(w.getHourly().getData().get(5).getPrecipProbability().toString());
-                if(((hour + 5) % 12) == 0) {
-                    h = String.valueOf(12);
-                }else{
-                    h = String.valueOf((hour + 5) % 12);
-                }
-                if((ti + 5) > 11){
-                    t = "pm";
-                }else{
-                    t = "am";
-                }
-                hourly_5.setText(h + t + "\n" + df.format(w.getHourly().getData().get(5).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+                h = getHour(hour + 5, ti + 5);
+                hourly_5.setText(h + "\n" + df.format(w.getHourly().getData().get(5).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView day_0_date = findViewById(R.id.day_0_date);
                 day_0_date.setText(getDOW(day));
@@ -261,6 +214,30 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /*
+    Round
+
+    input: double - value to round, int - how many places to round to
+    output: double - rounded value
+
+    method to round numbers
+     */
+    private static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = BigDecimal.valueOf(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+    /*
+    Get probability value
+
+    input: String - default probability value as a string
+    output: String - in form that is output to screen
+
+    Method that gets the probability value string that is displayed
+     */
     private String getProbabilityValue(String prob){
         String s;
 
@@ -275,6 +252,14 @@ public class MainActivity extends AppCompatActivity {
         return s;
     }
 
+    /*
+    Get date of week
+
+    input: int - num representing the day of the week
+    output: String - abbreviated day of week
+
+    Method that gets the day of the week string that is displayed
+     */
     private String getDOW(int num){
         num %= 7;
         if(num == 1){
@@ -294,5 +279,30 @@ public class MainActivity extends AppCompatActivity {
         }else{
             return "Sun";
         }
+    }
+
+    /*
+    Get hour
+
+    input: int - current hour plus how many hours added, int - military time current hour plus how many hours added
+    output: String - numerical hour plus am or pm
+
+    Method that gets the hour string that is displayed
+     */
+    private String getHour(int hour, int mil){
+        String h;
+
+        if((hour % 12) == 0) {
+            h = String.valueOf(12);
+        }else{
+            h = String.valueOf((hour) % 12);
+        }
+        if((mil % 24) > 11){
+            h += "pm";
+        }else{
+            h += "am";
+        }
+
+        return h;
     }
 }
