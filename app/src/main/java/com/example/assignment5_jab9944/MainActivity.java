@@ -97,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
     //method that allows me to round numbers
@@ -127,11 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 currentFeelsLike.setText("Feels like: " + df.format(w.getCurrently().getApparentTemperature()) + "°");
 
                 TextView currentPrecip = findViewById(R.id.currentPrecip);
-                if((w.getCurrently().getPrecipProbability().toString().length() == 3) && (w.getCurrently().getPrecipProbability().toString().charAt(2) != '0')){
-                    s = String.valueOf(round(w.getCurrently().getPrecipProbability(),1)) + "0";
-                }else{
-                    s = String.valueOf(round(w.getCurrently().getPrecipProbability(),1));
-                }
+                s = getProbabilityValue(w.getCurrently().getPrecipProbability().toString());
                 currentPrecip.setText("Precipitation: " + s.substring(2) + "%");
 
                 TextView currentWind = findViewById(R.id.currentWind);
@@ -146,11 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 day = calendar.get(Calendar.DAY_OF_WEEK);
 
                 TextView hourly_1 = findViewById(R.id.hourly_1);
-                if((w.getCurrently().getPrecipProbability().toString().length() == 3) && (w.getCurrently().getPrecipProbability().toString().charAt(2) != '0')){
-                    s = String.valueOf(round(w.getHourly().getData().get(1).getPrecipProbability(),1)) + "0";
-                }else{
-                    s = String.valueOf(round(w.getHourly().getData().get(1).getPrecipProbability(),1));
-                }
+                s = getProbabilityValue(w.getHourly().getData().get(1).getPrecipProbability().toString());
                 if(((hour + 1) % 12) == 0) {
                     h = String.valueOf(12);
                 }else{
@@ -164,11 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 hourly_1.setText(h + t + "\n" + df.format(w.getHourly().getData().get(1).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_2 = findViewById(R.id.hourly_2);
-                if((w.getCurrently().getPrecipProbability().toString().length() == 3) && (w.getCurrently().getPrecipProbability().toString().charAt(2) != '0')){
-                    s = String.valueOf(round(w.getHourly().getData().get(2).getPrecipProbability(),1)) + "0";
-                }else{
-                    s = String.valueOf(round(w.getHourly().getData().get(2).getPrecipProbability(),1));
-                }
+                s = getProbabilityValue(w.getHourly().getData().get(2).getPrecipProbability().toString());
                 if(((hour + 2) % 12) == 0) {
                     h = String.valueOf(12);
                 }else{
@@ -182,11 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 hourly_2.setText(h + t + "\n" + df.format(w.getHourly().getData().get(2).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_3 = findViewById(R.id.hourly_3);
-                if((w.getCurrently().getPrecipProbability().toString().length() == 3) && (w.getCurrently().getPrecipProbability().toString().charAt(2) != '0')){
-                    s = String.valueOf(round(w.getHourly().getData().get(3).getPrecipProbability(),1)) + "0";
-                }else{
-                    s = String.valueOf(round(w.getHourly().getData().get(3).getPrecipProbability(),1));
-                }
+                s = getProbabilityValue(w.getHourly().getData().get(3).getPrecipProbability().toString());
                 if(((hour + 3) % 12) == 0) {
                     h = String.valueOf(12);
                 }else{
@@ -200,11 +183,7 @@ public class MainActivity extends AppCompatActivity {
                 hourly_3.setText(h + t + "\n" + df.format(w.getHourly().getData().get(3).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_4 = findViewById(R.id.hourly_4);
-                if((w.getCurrently().getPrecipProbability().toString().length() == 3) && (w.getCurrently().getPrecipProbability().toString().charAt(2) != '0')){
-                    s = String.valueOf(round(w.getHourly().getData().get(4).getPrecipProbability(),1)) + "0";
-                }else{
-                    s = String.valueOf(round(w.getHourly().getData().get(4).getPrecipProbability(),1));
-                }
+                s = getProbabilityValue(w.getHourly().getData().get(4).getPrecipProbability().toString());
                 if(((hour + 4) % 12) == 0) {
                     h = String.valueOf(12);
                 }else{
@@ -218,11 +197,7 @@ public class MainActivity extends AppCompatActivity {
                 hourly_4.setText(h + t + "\n" + df.format(w.getHourly().getData().get(4).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
                 TextView hourly_5 = findViewById(R.id.hourly_5);
-                if((w.getCurrently().getPrecipProbability().toString().length() == 3) && (w.getCurrently().getPrecipProbability().toString().charAt(2) != '0')){
-                    s = String.valueOf(round(w.getHourly().getData().get(5).getPrecipProbability(), 1)) + "0";
-                }else{
-                    s = String.valueOf(round(w.getHourly().getData().get(5).getPrecipProbability(), 1));
-                }
+                s = getProbabilityValue(w.getHourly().getData().get(5).getPrecipProbability().toString());
                 if(((hour + 5) % 12) == 0) {
                     h = String.valueOf(12);
                 }else{
@@ -284,6 +259,20 @@ public class MainActivity extends AppCompatActivity {
                 day_7_temp.setText(df.format(w.getDaily().getData().get(7).getTemperatureHigh()) + "°" + " " + df.format(w.getDaily().getData().get(7).getTemperatureLow()) + "°");
             }
         });
+    }
+
+    private String getProbabilityValue(String prob){
+        String s;
+
+        if((prob.charAt(2) == '0')){
+            s =  "0";
+        }else if(prob.length() == 3) {
+            s = prob.substring(2) + "0";
+        }else{
+            s = prob.substring(2);
+        }
+
+        return s;
     }
 
     private String getDOW(int num){
