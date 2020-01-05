@@ -2,14 +2,21 @@
     <string name="app_name">Bestor Weather</string>
     <string name="PoweredBy">&lt;a href="https://darksky.net/poweredby/">Powered By Dark Sky&lt;/a></string>
     <string name="currentTemp">--</string>
-    <string name="currentFeelsLike">Feels like: --</string>
-    <string name="currentPrecip">Precipitation: --%</string>
-    <string name="currentWind">Wind: -- mph</string>
+    <string name="currentFeelsLike">Feels like: -</string>
+    <string name="currentPrecip">Precipitation: -%</string>
+    <string name="currentWind">Wind: - mph</string>
     <string name="hourly_1">--\n--%</string>
     <string name="hourly_2">--\n--%</string>
     <string name="hourly_3">--\n--%</string>
     <string name="hourly_4">--\n--%</string>
     <string name="hourly_5">--\n--%</string>
+    <string name="hourly_6">--\n--%</string>
+    <string name="hourly_7">--\n--%</string>
+    <string name="hourly_8">--\n--%</string>
+    <string name="hourly_9">--\n--%</string>
+    <string name="hourly_10">--\n--%</string>
+    <string name="hourly_11">--\n--%</string>
+    <string name="hourly_12">--\n--%</string>
     <string name="day_0_temp">--</string>
     <string name="day_1_temp">--</string>
     <string name="day_2_temp">--</string>

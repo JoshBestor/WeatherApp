@@ -163,6 +163,41 @@ public class MainActivity extends AppCompatActivity {
                 h = getHour(hour + 5, ti + 5);
                 hourly_5.setText(h + "\n" + df.format(w.getHourly().getData().get(5).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
 
+                TextView hourly_6 = findViewById(R.id.hourly_6);
+                s = getProbabilityValue(w.getHourly().getData().get(6).getPrecipProbability().toString());
+                h = getHour(hour + 6, ti + 6);
+                hourly_6.setText(h + "\n" + df.format(w.getHourly().getData().get(6).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
+                TextView hourly_7 = findViewById(R.id.hourly_7);
+                s = getProbabilityValue(w.getHourly().getData().get(7).getPrecipProbability().toString());
+                h = getHour(hour + 7, ti + 7);
+                hourly_7.setText(h + "\n" + df.format(w.getHourly().getData().get(7).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
+                TextView hourly_8 = findViewById(R.id.hourly_8);
+                s = getProbabilityValue(w.getHourly().getData().get(8).getPrecipProbability().toString());
+                h = getHour(hour + 8, ti + 8);
+                hourly_8.setText(h + "\n" + df.format(w.getHourly().getData().get(8).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
+                TextView hourly_9 = findViewById(R.id.hourly_9);
+                s = getProbabilityValue(w.getHourly().getData().get(9).getPrecipProbability().toString());
+                h = getHour(hour + 9, ti + 9);
+                hourly_9.setText(h + "\n" + df.format(w.getHourly().getData().get(9).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
+                TextView hourly_10 = findViewById(R.id.hourly_10);
+                s = getProbabilityValue(w.getHourly().getData().get(10).getPrecipProbability().toString());
+                h = getHour(hour + 10, ti + 10);
+                hourly_10.setText(h + "\n" + df.format(w.getHourly().getData().get(10).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
+                TextView hourly_11 = findViewById(R.id.hourly_11);
+                s = getProbabilityValue(w.getHourly().getData().get(11).getPrecipProbability().toString());
+                h = getHour(hour + 11, ti + 11);
+                hourly_11.setText(h + "\n" + df.format(w.getHourly().getData().get(11).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
+                TextView hourly_12 = findViewById(R.id.hourly_12);
+                s = getProbabilityValue(w.getHourly().getData().get(12).getPrecipProbability().toString());
+                h = getHour(hour + 12, ti + 12);
+                hourly_12.setText(h + "\n" + df.format(w.getHourly().getData().get(12).getTemperature()) + "°" + "\n" + s.substring(2) + "%");
+
                 TextView day_0_date = findViewById(R.id.day_0_date);
                 day_0_date.setText(getDOW(day));
 
