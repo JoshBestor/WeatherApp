@@ -39,7 +39,7 @@
         android:id="@+id/currentFeelsLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="11dp"
         android:text="@string/currentFeelsLike"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +65,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currentPrecip" />
 
+    <TextView
+        android:id="@+id/pollen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/pollen"
+        android:clickable="true"
+        android:linksClickable="true"
+        android:focusable="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentWind" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,14 +87,14 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currentWind">
+        app:layout_constraintTop_toBottomOf="@+id/pollen">
 
-        <ScrollView
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -91,7 +104,7 @@
 
                 <TextView
                     android:id="@+id/hourly_1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -99,7 +112,7 @@
 
                 <TextView
                     android:id="@+id/hourly_2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -107,7 +120,7 @@
 
                 <TextView
                     android:id="@+id/hourly_3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -115,7 +128,7 @@
 
                 <TextView
                     android:id="@+id/hourly_4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -123,7 +136,7 @@
 
                 <TextView
                     android:id="@+id/hourly_5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -131,58 +144,103 @@
 
                 <TextView
                     android:id="@+id/hourly_6"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
                     android:text="@string/hourly_6" />
 
                 <TextView
                     android:id="@+id/hourly_7"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hourly_7" />
 
                 <TextView
                     android:id="@+id/hourly_8"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hourly_8" />
 
                 <TextView
                     android:id="@+id/hourly_9"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hourly_9" />
 
                 <TextView
                     android:id="@+id/hourly_10"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hourly_10" />
 
                 <TextView
                     android:id="@+id/hourly_11"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hourly_11" />
 
                 <TextView
                     android:id="@+id/hourly_12"
-                    android:layout_width="wrap_content"
+                    android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/hourly_12" />
 
+                <TextView
+                    android:id="@+id/hourly_13"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hourly_13" />
+
+                <TextView
+                    android:id="@+id/hourly_14"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hourly_14" />
+
+                <TextView
+                    android:id="@+id/hourly_15"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hourly_15" />
+
+                <TextView
+                    android:id="@+id/hourly_16"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hourly_16" />
+
+                <TextView
+                    android:id="@+id/hourly_17"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hourly_17" />
+
+                <TextView
+                    android:id="@+id/hourly_18"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/hourly_18" />
+
             </LinearLayout>
-        </ScrollView>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <LinearLayout

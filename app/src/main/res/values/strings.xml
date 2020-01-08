@@ -5,6 +5,7 @@
     <string name="currentFeelsLike">Feels like: -</string>
     <string name="currentPrecip">Precipitation: -%</string>
     <string name="currentWind">Wind: - mph</string>
+    <string name="pollen">&lt;a href="https://pollen.com/forecast/extended/pollen">Pollen count&lt;/a></string>
     <string name="hourly_1">--\n--%</string>
     <string name="hourly_2">--\n--%</string>
     <string name="hourly_3">--\n--%</string>
@@ -17,6 +18,12 @@
     <string name="hourly_10">--\n--%</string>
     <string name="hourly_11">--\n--%</string>
     <string name="hourly_12">--\n--%</string>
+    <string name="hourly_13">--\n--%</string>
+    <string name="hourly_14">--\n--%</string>
+    <string name="hourly_15">--\n--%</string>
+    <string name="hourly_16">--\n--%</string>
+    <string name="hourly_17">--\n--%</string>
+    <string name="hourly_18">--\n--%</string>
     <string name="day_0_temp">--</string>
     <string name="day_1_temp">--</string>
     <string name="day_2_temp">--</string>
